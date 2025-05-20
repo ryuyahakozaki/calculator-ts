@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import NumberKey from './NumberKey';
 // import PropTypes from 'prop-types'
 
 function Main() {
@@ -68,58 +69,30 @@ function Main() {
   };
 
   return (
-    <>
+    <div className='calc-base'>
       <div className="calc-answer">{displayCalc ? displayCalc : '0'}</div>
-      <div>
-        {[...Array(3)].map((value, index) => (
-          <button
-            key={index}
-            className="number"
-            onClick={() => calc(index + 1)}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
-      <div>
-        {[...Array(3)].map((value, index) => (
-          <button
-            key={index + 4}
-            className="number"
-            onClick={() => calc(index + 4)}
-          >
-            {index + 4}
-          </button>
-        ))}
-      </div>
-      <div>
-        {[...Array(3)].map((value, index) => (
-          <button
-            key={index + 7}
-            className="number"
-            onClick={() => calc(index + 7)}
-          >
-            {index + 7}
-          </button>
-        ))}
-      </div>
-      <button key="0" className="number" onClick={() => calc(0)}>
+
+      <NumberKey startNum={1} numTimes={3} onCalc={(num) => calc(num + 1)}/>
+      <NumberKey startNum={4} numTimes={3} onCalc={(num) => calc(num + 4)}/>
+      <NumberKey startNum={7} numTimes={3} onCalc={(num) => calc(num + 7)}/>
+    
+      <button key="0" className="number calc-key" onClick={() => calc(0)}>
         0
       </button>
       <button key="E" className="calc-enter" onClick={enter}>
         =
       </button>
+      <button key="c" className="calc-clear" onClick={clear}>
+        C
+      </button>
 
       {Object.entries(calcSymbols).map(([key, symbol]) => (
-        <button key={key} className="calc" onClick={() => symbolJoin(key)}>
+        <button key={key} className="calc-symbol" onClick={() => symbolJoin(key)}>
           {symbol}
         </button>
       ))}
 
-      <button key="c" className="calc-clear" onClick={clear}>
-        C
-      </button>
-    </>
+    </div>
   );
 
 }

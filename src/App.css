@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.calc-base {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.calc-answer {
+  font-size: 42px;
+}
+
+.calc-key {
+  font-size: 32px;
+  width: 4em;
+}
+
+.calc-enter {
+  font-size: 32px;
+  width: 4em;
+}
+
+.calc-clear {
+  font-size: 32px;
+  width: 4em;
+}
+
+.calc-symbol {
+  font-size: 32px;
+  width: 3em;
+}
